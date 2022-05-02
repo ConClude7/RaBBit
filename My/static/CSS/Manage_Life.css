@@ -1,0 +1,107 @@
+#Message_Life {
+    width: 0;
+    height: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#Life_Body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#Life_Body>div {
+    border: 1px solid #d6d6d6;
+    width: 50%;
+    box-sizing: border-box;
+    margin: 1rem 0;
+}
+
+#Life_Body input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+
+
+#MId_Input,
+#MName_Input {
+    height: 30px;
+}
+
+#MAddress_Input {
+
+    height: 30px;
+}
+
+#Message_Life_info {
+    width: 0;
+    height: 0;
+}
+
+#Life_info {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#Info_left,
+#Info_right {
+    width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#Info_left>div,
+#Info_right>div {
+    text-align: center;
+    background: none;
+}
+
+#Info_left {
+    height: 60%;
+}
+
+#Info_mid {
+    width: 20%;
+}
+
+#Info_mname {
+    width: 30%;
+}
+
+#Info_maddress {
+    width: 50%;
+}
+
+#Info_date {
+    width: 60%;
+}
+
+#Info_mstate {
+    width: 40%;
+}
+
+#Info_right {
+    height: 40%;
+    background: lightblue;
+}
+
+
+#Info_left>div {
+    font-size: 1.2rem;
+}
+
+#Info_right>div {
+    font-size: 1.2rem;
+    color: #FFF;
+}

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生成绩</title>
+    <script src="../JS/Tem.js"></script>
+    <link rel="stylesheet" href="../CSS/Tem.css">
+    <link rel="stylesheet" href="../CSS/Score.css">
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="../JS/axios.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/echarts/5.3.2/echarts.min.js"></script> -->
+    <script src="../JS/echarts.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../IMG/Rabbit_Grey.png">
+</head>
+
+<body>
+    <div id="Flex_Box">
+        <div id="Title_Box">
+            <div id="Title_Menu">
+                <div id="Title_Menu_Font" onclick="Page('Home')">
+                    RaBBits
+                </div>
+                <div id="Title_Menu_Button">
+                    成绩
+                    <div id="Title_Menu_Turn">
+                        &#8249;
+                    </div>
+                </div>
+            </div>
+            <div id="Title_Main">
+                <div class="Title_PlaceHolder_Box"></div>
+                <div id="Title_Main_Box"></div>
+                <div class="Title_PlaceHolder_Box"></div>
+            </div>
+        </div>
+
+        <div id="Menu_Box">
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Schedule.png" onclick="Page('Course')" alt="课程管理">
+                </div>
+                <div class="Menu_Font">
+                    课程查看
+                </div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/News.png" alt="校务新闻">
+                </div>
+                <div class="Menu_Font">校务新闻</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Score.png" alt="考试管理">
+                </div>
+                <div class="Menu_Font">考试管理</div>
+            </div>
+            <div onclick="Page('Life')">
+                <div class="Menu_IMG">
+                    <img src="../IMG/Duck.png" alt="生活服务">
+                </div>
+                <div class="Menu_Font">生活服务</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/GPS.png" alt="每日打卡">
+                </div>
+                <div class="Menu_Font">每日打卡</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Business.png" alt="个人信息">
+                </div>
+                <div class="Menu_Font">个人信息</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/MindPiece.png" alt="暂时未定">
+                </div>
+                <div class="Menu_Font">社交聊天</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Report.png" alt="我的班级">
+                </div>
+                <div class="Menu_Font">我的班级</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Book.png" alt="云图书">
+
+                </div>
+                <div class="Menu_Font">云图书</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Keynote.png" alt="教师管理">
+                </div>
+                <div class="Menu_Font">教师管理</div>
+            </div>
+            <div id="Menu_Admin">
+                <div class="Menu_IMG" onclick="Page('Manage')">
+                    <img src="../IMG/Admin.png" alt="">
+                </div>
+                <div class="Menu_Font">后台管理</div>
+            </div>
+        </div>
+
+        <div id="Content_Box">
+            <!-- <div id="Content_List"></div> -->
+            <div id="Content_Main">
+                <div id="Content_Info_Box">
+                    <div id="Content_Info_Img">
+                        <img class="UserImg" alt="头像">
+                    </div>
+                    <div id="Content_Info_Name">
+                        <h2 id="Score_Name"></h2>
+                        <p id="Score_ID"></p>
+                    </div>
+                    <div id="Content_Info_Placeholder"></div>
+                    <div id="Content_Info_Score">
+                        <span id="Info_Score"></span><a>分</a>
+
+
+                    </div>
+                </div>
+                <div id="Content_Score_Box">
+                    <div id="Day_Table_Box">
+                        <div id="Day_Box_Date" onclick="Day_Or_Time('Time')">
+                            <div id="Day_Title"></div>
+                            <div id="Day_Content"></div>
+                        </div>
+                        <div id="Day_Box_Time" onclick="Day_Or_Time('Date')">
+                        </div>
+                    </div>
+
+                    <div id="Class_Table_Box">
+                        <div id="Class_Box_Next" onclick="Next_Or_Course('Course')">
+                            <div id="Class_Title">课程预览</div>
+                            <div id="Class_Content"></div>
+                            <div id="Class_Bottom"></div>
+                        </div>
+                        <div id="Class_Box_Course" onclick="Next_Or_Course('Next')">
+                            <table id="Course_Table">
+                                <tbody id="Course_Table_TBody">
+                                    <tr>
+                                        <th style="border-top-left-radius: 6px;" class="Course_th">星期一</th>
+                                        <th class="Course_th">星期二</th>
+                                        <th class="Course_th">星期三</th>
+                                        <th class="Course_th">星期四</th>
+                                        <th style="border-top-right-radius:6px;" class="Course_th">星期五</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="Content_Table_Box">
+                        <table id="Score_Table">
+                            <tbody id="Score_Test">
+                                <tr id="Table_Text">
+                                    <th style="border-top-left-radius: 6px;">课程名称</th>
+                                    <th style="border-top-right-radius: 6px;">成绩</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="Content_Echarts_Box">
+                    <div id="Echarts_In"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+    var myChart, Time_Echarts, Score_option;
+    let My_Url = 'http://192.168.31.176:8081';
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        const UserID = getCookie("UserID");
+        const UserName = getCookie("UserName");
+        if (UserID != "") {
+            SomeThing_Load();
+            Table_Onload(UserID, UserName);
+            Course(UserID);
+        } else {
+            Page('Home');
+        }
+    }
+
+    var Table_Onload = function (UserID, UserName) {
+        const Score_Name = document.getElementById("Score_Name");
+        const Score_ID = document.getElementById("Score_ID");
+        Score_Name.innerText = UserName;
+        Score_ID.innerText = UserID;
+        Score_Table(UserID, UserName);
+    }
+
+    var SomeThing_Load = function () {
+        var D = new Date();
+        var Days = D.getDay();
+        const Day = D.getDate();
+        let Week;
+        switch (Days) {
+            case 1:
+                Week = '星期一';
+                break;
+            case 2:
+                Week = '星期二';
+                break;
+            case 3:
+                Week = '星期三';
+                break;
+            case 4:
+                Week = '星期四';
+                break;
+            case 5:
+                Week = '星期五';
+                break;
+            case 6:
+                Week = '星期六';
+                break;
+            case 0:
+                Week = '星期日';
+                break;
+        }
+        document.getElementById("Day_Title").innerHTML = Week;
+        document.getElementById("Day_Content").innerHTML = Day;
+        Time_Echarts_Load();
+    }
+
+    var Day_Or_Time = function (element) {
+        const Date = document.getElementById("Day_Box_Date");
+        const Time = document.getElementById("Day_Box_Time");
+        if (element == "Time") {
+            Date.style.visibility = "hidden";
+            Date.style.opacity = "0";
+            Date.style.height = "0"
+            Time.style.visibility = "visible";
+            Time.style.opacity = "1";
+            Time.style.height = "13rem";
+        } else {
+            Date.style.opacity = "1";
+            Date.style.height = "13rem"
+            Time.style.opacity = "0";
+            Time.style.height = "0";
+            Time.style.visibility = "hidden";
+            Date.style.visibility = "visible";
+        }
+    }
+
+    var Next_Or_Course = function (element) {
+        const Next = document.getElementById("Class_Box_Next");
+        const Course = document.getElementById("Class_Box_Course");
+        if (element == "Course") {
+            Course.style.opacity = "1";
+            Course.style.width = "100%";
+            Course.style.height = "13rem";
+            Next.style.opacity = "0";
+            Next.style.width = "0";
+            Next.style.height = "0";
+            Next.style.visibility = "hidden";
+            Course.style.visibility = "visible";
+
+
+        } else {
+            Next.style.opacity = "1";
+            Next.style.width = "100%"
+            Next.style.height = "13rem";
+            Course.style.opacity = "0";
+            Course.style.width = "0";
+            Course.style.height = "0";
+            Course.style.visibility = "hidden";
+            Next.style.visibility = "visible";
+        }
+    }
+
+    var Course = function (UserID) {
+
+        const ClassName = UserID.slice(2, 10);
+        let Course_Num, Week_Num, Hour_Num;
+        const D = new Date();
+        let Week = D.getDay();
+        let Hour = D.getHours();
+        switch (true) {
+            case Hour < 9:
+                Hour_Num = 1;
+                break;
+            case 9 <= Hour && Hour < 11:
+                Hour_Num = 2;
+                break;
+            case 11 <= Hour && Hour < 14:
+                Hour_Num = 3;
+                break;
+            case 14 <= Hour && Hour < 16:
+                Hour_Num = 4;
+                break;
+            case 16 <= Hour:
+                Hour_Num = 1;
+                Week += 1;
+                break;
+        };
+        switch (true) {
+            case Week == 0 || Week == 6 || Week == 7:
+                Week = 1;
+                Course_Num = "course" + Week + "_";
+                break;
+            default:
+                Course_Num = "course" + Week + "_";
+                break;
+        };
+        axios({
+            method: "POST",
+            url: My_Url + "/course/all",
+            data: {
+                "ClassName": ClassName,
+            }
+        }).then((res) => {
+            Course_Table(res);
+            for (let n = Hour_Num; n <= 4; n++) {
+                Course_Num += n;
+                if (res.data[Course_Num] != null) {
+                    break;
+                } else {
+                    Course_Num = Course_Num.slice(0, -1);
+                }
+            }
+
+            console.log(Course_Num);
+            let Course_Week, Course_Hour;
+            switch (Course_Num.slice(-3, -2)) {
+                case "1":
+                    Course_Week = "星期一"
+                    break;
+                case "2":
+                    Course_Week = "星期二"
+                    break;
+                case "3":
+                    Course_Week = "星期三"
+                    break;
+                case "4":
+                    Course_Week = "星期四"
+                    break;
+                case "5":
+                    Course_Week = "星期五"
+                    break;
+                default:
+                    break;
+            };
+            switch (Course_Num.slice(8, 9)) {
+                case "1":
+                    Course_Hour = "第一节 8:40~10:05"
+                    break;
+                case "2":
+                    Course_Hour = "第二节 10:25~11:50"
+                    break;
+                case "3":
+                    Course_Hour = "第三节 13:20~14:45"
+                    break;
+                case "4":
+                    Course_Hour = "第四节 14:55~16:20"
+                    break;
+                default:
+                    break;
+            };
+
+            document.getElementById("Class_Content").innerHTML = res.data[Course_Num];
+            document.getElementById("Class_Bottom").innerHTML = Course_Week + "&nbsp;&nbsp;&nbsp;&nbsp;" +
+                Course_Hour;
+        })
+    }
+
+    var Course_Table = function (res) {
+        let Course_Name = "course";
+        const table = document.getElementById("Course_Table_TBody");
+        for (let n = 1; n <= 4; n++) {
+            const tr = document.createElement("tr");
+            table.appendChild(tr);
+            for (let m = 1; m <= 5; m++) {
+                const td = document.createElement("td");
+                Course_Name = Course_Name + m + "_" + n;
+                td.innerHTML = res.data[Course_Name];
+                Course_Name = Course_Name.slice(0, 6);
+                tr.appendChild(td);
+            }
+        }
+    }
+
+    var Score_Table = function (UserID, UserName) {
+        axios({
+            method: "POST",
+            url: My_Url + '/home/scores',
+            data: {
+                "StudentID": UserID,
+            }
+        }).then(function (res) {
+            let Score_Arr = new Array();
+            const Scores = ["webscore", "sqlscore", "rfidscore", "javascore", "linuxscore"];
+            const Score_Name = ["Web", "SQL", "RFID", "Java", "Linux"]
+            for (let i = 0; i < Scores.length; i++) {
+                let Score_ArrName = Scores[i];
+                Score_Arr[i] = res.data[Score_ArrName];
+            }
+
+            const table = document.getElementById("Score_Test");
+            let Sum = 0;
+            for (let n = 0; n < Score_Name.length; n++) {
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                table.appendChild(tr);
+                td.innerHTML = Score_Name[n];
+                tr.appendChild(td);
+                for (let m = 0; m < 1; m++) {
+                    const td = document.createElement("td");
+                    Sum += Score_Arr[n]
+                    td.innerHTML = Score_Arr[n];
+                    tr.appendChild(td);
+                }
+            }
+            console.log(Sum);
+            document.getElementById("Info_Score").innerText = (Sum / Scores.length);
+            Echarts_Start(Score_Name, Score_Arr);
+        })
+    }
+
+    var Time_Echarts_Load = function () {
+        const chartDom = document.getElementById('Day_Box_Time');
+        Time_Echarts = echarts.init(chartDom);
+        let Time_option;
+
+        Time_option = {
+            series: [{
+                    name: 'hour',
+                    type: 'gauge',
+                    startAngle: 90,
+                    endAngle: -270,
+                    min: 0,
+                    max: 12,
+                    splitNumber: 12,
+                    clockwise: true,
+                    axisLine: {
+                        lineStyle: {
+                            width: 0,
+                            color: [
+                                [1, 'rgba(0,0,0,0.7)']
+                            ],
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 15
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            shadowColor: 'rgba(0, 0, 0, 0.3)',
+                            shadowBlur: 3,
+                            shadowOffsetX: 1,
+                            shadowOffsetY: 2
+                        }
+                    },
+                    axisLabel: {
+                        fontSize: 10,
+                        distance: 130,
+                        show: 0,
+                        formatter: function (value) {
+                            if (value === 0) {
+                                return '';
+                            }
+                            return value + '';
+                        }
+                    },
+
+                    pointer: {
+                        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',
+                        width: 5,
+                        length: '55%',
+                        offsetCenter: [0, '8%'],
+                        itemStyle: {
+                            color: '#5a5a5a',
+                            shadowColor: 'rgba(0, 0, 0, 0.3)',
+                            shadowBlur: 8,
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 4
+                        }
+                    },
+                    detail: {
+                        show: false
+                    },
+                    title: {
+                        offsetCenter: [0, '30%']
+                    },
+                    data: [{
+                        value: 0
+                    }]
+                },
+                {
+                    name: 'minute',
+                    type: 'gauge',
+                    startAngle: 90,
+                    endAngle: -270,
+                    min: 0,
+                    max: 60,
+                    clockwise: true,
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    pointer: {
+                        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',
+                        width: 3,
+                        length: '70%',
+                        offsetCenter: [0, '8%'],
+                        itemStyle: {
+                            color: '#5a5a5a',
+                            shadowColor: 'rgba(0, 0, 0, 0.3)',
+                            shadowBlur: 8,
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 4
+                        }
+                    },
+                    anchor: {
+                        show: true,
+                        size: 1,
+                        showAbove: false,
+                        itemStyle: {
+                            borderWidth: 12,
+                            color: '#5a5a5a',
+                            shadowColor: 'rgba(0, 0, 0, 0.3)',
+                            shadowBlur: 8,
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 4
+                        }
+                    },
+                    detail: {
+                        show: false
+                    },
+                    title: {
+                        offsetCenter: ['0%', '-40%']
+                    },
+                    data: [{
+                        value: 0
+                    }]
+                },
+                {
+                    name: 'second',
+                    type: 'gauge',
+                    startAngle: 90,
+                    endAngle: -270,
+                    min: 0,
+                    max: 60,
+                    animationEasingUpdate: 'bounceOut',
+                    clockwise: true,
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    pointer: {
+                        icon: 'path://M2.9,0.7L2.9,0.7c1.4,0,2.6,1.2,2.6,2.6v115c0,1.4-1.2,2.6-2.6,2.6l0,0c-1.4,0-2.6-1.2-2.6-2.6V3.3C0.3,1.9,1.4,0.7,2.9,0.7z',
+                        width: 1,
+                        length: '85%',
+                        offsetCenter: [0, '8%'],
+                        itemStyle: {
+                            color: '#5a5a5a',
+                            shadowColor: 'rgba(0, 0, 0, 0.3)',
+                            shadowBlur: 8,
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 4
+                        }
+                    },
+                    anchor: {
+                        show: true,
+                        size: 12,
+                        showAbove: true,
+                        itemStyle: {
+                            color: '#5a5a5a',
+                            shadowColor: 'rgba(0, 0, 0, 0.3)',
+                            shadowBlur: 8,
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 4
+                        }
+                    },
+                    detail: {
+                        show: false
+                    },
+                    data: [{
+                        value: 0
+                    }]
+                }
+            ]
+        };
+        setInterval(function () {
+            const date = new Date();
+            const second = date.getSeconds();
+            const minute = date.getMinutes() + second / 60;
+            const hour = (date.getHours() % 12) + minute / 60;
+            Time_option.animationDurationUpdate = 300;
+            Time_Echarts.setOption({
+                series: [{
+                        name: 'hour',
+                        animation: hour !== 0,
+                        data: [{
+                            value: hour
+                        }]
+                    },
+                    {
+                        name: 'minute',
+                        animation: minute !== 0,
+                        data: [{
+                            value: minute
+                        }]
+                    },
+                    {
+                        animation: second !== 0,
+                        name: 'second',
+                        data: [{
+                            value: second
+                        }]
+                    }
+                ]
+            });
+        }, 1000);
+        Time_Echarts.setOption(Time_option);
+        Time_Echarts.resize();
+    }
+
+    var Echarts_Start = function (Score_Name, Score_Arr) {
+        const Table = document.getElementById("Echarts_In");
+        myChart = echarts.init(Table);
+
+
+        Score_option = {
+            legend: {},
+            tooltip: {},
+            dataset: {
+                dimensions: ['科目名称', '分数', '平均分'],
+                source: [{
+                        科目名称: Score_Name[0],
+                        分数: Score_Arr[0],
+                        平均分: 85.8
+                    },
+                    {
+                        科目名称: Score_Name[1],
+                        分数: Score_Arr[1],
+                        平均分: 73.4
+                    },
+                    {
+                        科目名称: Score_Name[2],
+                        分数: Score_Arr[2],
+                        平均分: 65.2
+                    },
+                    {
+                        科目名称: Score_Name[3],
+                        分数: Score_Arr[3],
+                        平均分: 53.9
+                    },
+                    {
+                        科目名称: Score_Name[4],
+                        分数: Score_Arr[4],
+                        平均分: 57.9
+                    }
+                ]
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+
+
+
+            },
+            // Declare several bar series, each will be mapped
+            // to a column of dataset.source by default.
+            series: [{
+                type: 'bar',
+                color: '#FFC0CB'
+            }, {
+                type: 'bar',
+                color: '#ADD8E6'
+            }]
+        };
+        if (screen.width < 768) {
+            Score_option.xAxis.type = "value";
+            Score_option.yAxis.type = "category";
+        }
+        myChart.setOption(Score_option);
+
+    }
+
+    var AutoPage_Score = function () {
+        const Day_Table_Box = document.getElementById("Day_Table_Box");
+        const Class_Table_Box = document.getElementById("Class_Table_Box");
+        const Content_Table_Box = document.getElementById("Content_Table_Box");
+        const Course_th = document.getElementsByClassName("Course_th");
+        Class_Table_Box.style.width = "30rem";
+        Class_Table_Box.style.height = "calc(13rem + 2px)";
+        for (let i = 0; i < Course_th.length; i++) {
+            Course_th[i].style.width = "6rem";
+            Course_th[i].style.height = "2.6rem";
+            Course_th[i].style.fontSize = "1rem";
+        }
+        Content_Table_Box.style.weight = "0";
+        Content_Table_Box.style.height = "0";
+        Content_Table_Box.style.opacity = "0";
+        Content_Table_Box.style.display = "none";
+        document.getElementById("Content_Echarts_Box").style.height = "50%";
+        document.getElementById("Content_Info_Placeholder").setAttribute("style", "width:0%")
+        const Info_Img = document.getElementById("Content_Info_Img");
+        Info_Img.style.width = "6rem";
+        Info_Img.style.height = "6rem";
+    }
+</script>
+
+</html>

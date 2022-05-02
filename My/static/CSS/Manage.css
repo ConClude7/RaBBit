@@ -1,0 +1,1248 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    transition: all 0.5s;
+    background-color: #FFF;
+    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: auto;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    z-index: 0;
+    transition: all 0.25s;
+}
+
+body {
+    /* filter: blur(10px); */
+    opacity: 1;
+
+}
+
+#Flex_Box {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    display: flex;
+    flex-flow: column nowrap;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+/* ----------Title---------- */
+
+#Title_Menu {
+    width: 100%;
+    height: 44px;
+    line-height: 60px;
+    background-color: #323232;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+}
+
+#Title_Menu_Font {
+    height: 29px;
+    width: 72px;
+    font-size: 21px;
+    font-weight: 500;
+    color: #FFF;
+    background: none;
+    margin: 0 0.5rem 0 1rem;
+    cursor: pointer;
+}
+
+#Title_Menu_Button {
+    height: 30px;
+    line-height: 30px;
+    width: auto;
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFF;
+    background: none;
+    cursor: pointer;
+}
+
+#Title_Menu_Turn {
+    display: inline-block;
+    font-size: 21px;
+    font-weight: 700;
+    background: none;
+    cursor: pointer;
+    transform: rotate(-90deg);
+}
+
+#Menu_Box {
+    z-index: 10;
+    transition: all 0.5s;
+    filter: blur(0.4px);
+    width: 43rem;
+    height: 20rem;
+    line-height: 3rem;
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #d5d5d5;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    margin: 58px 0 0 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#Menu_Box:after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 7rem;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent transparent;
+    border-bottom: 8px solid #FFF;
+}
+
+#Menu_Box>div {
+    width: 4rem;
+    height: 6rem;
+    margin: 1.5rem;
+}
+
+.Menu_IMG {
+    width: 100%;
+    height: 4rem;
+    cursor: pointer;
+}
+
+.Menu_IMG img {
+    width: 100%;
+    height: 100%;
+    border-radius: 23%;
+}
+
+.Menu_Font {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #000;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.85rem;
+}
+
+#Left_Main * {
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, \5fae\8f6f\96c5\9ed1, Arial, sans-serif;
+}
+
+#Content_Title {
+    /* position: fixed; */
+    width: calc(100% - 200px);
+    height: 61px;
+    background-color: #FFF;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    box-shadow: 0px 15px 10px -15px #aaaaaa;
+}
+
+.Title_Img {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    margin: 0 14px;
+}
+
+.Title_Img>img {
+    width: 17px;
+    height: 17px;
+    background: none;
+    opacity: 0.8;
+}
+
+#Title_Right_Ico {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+#Title_Right_Ico>img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.Title_Right_Img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0 1rem;
+}
+
+.Title_Right_Img>img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+}
+
+#Title_Left_Box {
+    width: auto;
+    height: 40px;
+    background-color: #FFF;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center
+}
+
+#Title_Left_Box>div {
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#Title_Right_Box {
+    width: auto;
+    height: 40px;
+    background-color: #FFF;
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: flex-start;
+    align-items: center
+}
+
+/* ----------Left_Menu---------- */
+
+#Left_Menu {
+    height: 100%;
+    width: 200px;
+    background-color: #323232;
+}
+
+#Left_Title {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #777777;
+    background-color: #323232;
+}
+
+#Left_Main {
+    background: none;
+    width: 100%;
+    height: calc(100% - 61px);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+#Left_Main>div {
+    height: 44px;
+    overflow: hidden;
+}
+
+#Left_Main * {
+    background: none;
+    transition: all 0.25s;
+}
+
+.Menu_first {
+    width: 100%;
+    height: 44px;
+    opacity: 1;
+    visibility: visible;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.Menu_first:hover>div,
+.Menu_second:hover {
+    filter: brightness(100%);
+}
+
+.Menu_first>div {
+    color: #FFF;
+    filter: brightness(60%);
+}
+
+.First_Img {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    margin: 0 8px;
+}
+
+.First_Img>img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(60%);
+}
+
+.First_Font {
+    width: 100px;
+    height: 44px;
+    line-height: 44px;
+}
+
+.Menu_second {
+    cursor: pointer;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    color: #FFF;
+    filter: brightness(60%);
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 45px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+
+/* ----------Content---------- */
+
+#Content_Main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+/* --------------------------- */
+
+#Content_Box {
+    width: calc(100% - 200px);
+    height: calc(100% - 61px);
+    background-color: #f5f7f9;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    opacity: 0;
+}
+
+#Content_Box>div {
+    background-color: #FFF;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+    /* box-shadow: 0px 0px 5px 1px #aaaaaa; */
+    box-sizing: border-box;
+    margin: 5px
+}
+
+#Content_Find {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------ */
+
+#Find_Div {
+    width: 60%;
+    height: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    margin-right: 5rem;
+}
+
+#Find_Img {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #d6d6d6;
+    border-right: none;
+    background-color: #3c9bff;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    z-index: 2;
+    padding: 7px;
+    box-sizing: border-box;
+}
+
+#Find_Img>img {
+    width: 26px;
+    height: 26px;
+    background-color: #3c9bff;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+#Manage_Main_User {
+    background: hsla(0, 0%, 100%, .8);
+    height: 40px;
+    border: 1px solid #d6d6d6;
+    border-left: none;
+    width: 100%;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 1;
+}
+
+#Manage_User {
+    z-index: 2;
+    border: none;
+    outline: none;
+    width: 96%;
+    height: 40px;
+    font-size: 19.5px;
+    font-weight: 400;
+    color: #291818;
+    background: none;
+    margin: 0rem 0rem 0 15px;
+    /* position: absolute; */
+}
+
+#Input_Font_User {
+    height: 0;
+    z-index: 0;
+    position: absolute;
+    font-size: 15px;
+    color: #888;
+    background: none;
+    font-weight: 300;
+    margin: -30px 0 0 30px;
+    cursor: pointer;
+}
+
+#Find_Button {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.Find_Button>input {
+    box-sizing: border-box;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+#Find_Button_Ok {
+    background-color: #2d8cf0;
+    border: 1px solid #3c9bff;
+    color: #fff;
+}
+
+#Find_Button_Ok:hover {
+    background-color: #3c9bff;
+    border-color: #3c9bff;
+}
+
+#Find_Button_No {
+    border: 1px solid #e7e7eb;
+    color: #333639;
+    transition: all 0.25s;
+}
+
+#Find_Button_No:hover {
+    border-color: #3c9bff;
+    color: #3c9bff;
+}
+
+/* ------------------ */
+
+#Content_Div {
+    width: 100%;
+    /* height: calc(75% - 61px); */
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 10px 20px 10px;
+}
+
+#Content_Use {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Use_Button {
+    padding: 7px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    background-color: #2d8cf0;
+    cursor: pointer;
+}
+
+.Use_Button:hover {
+    background-color: #3c9bff;
+}
+
+#Use_Right {
+    height: 90%;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Use_Img {
+    width: 23px;
+    height: 23px;
+    box-sizing: border-box;
+    margin: 0 5px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.Use_Img>img {
+    width: 23px;
+    height: 23px;
+    opacity: 0.9;
+}
+
+#Use_Hr {
+    width: 40px;
+    text-align: center;
+    border: none;
+    height: 20px;
+    color: #dddddd;
+}
+
+#CheckBox {
+    box-sizing: border-box;
+    width: 55x;
+    height: 22px;
+}
+
+.switch-wrap:hover::before {
+    padding: 5px 10px;
+    border-radius: 2px;
+    left: 75px;
+    bottom: 25px;
+    position: relative;
+    content: "表格斑马纹";
+    font-size: 13px;
+    background-color: #555555;
+    color: #FFF;
+}
+
+.switch-wrap input[type=checkbox] {
+    height: 0px;
+    width: 0px;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.switch-wrap label {
+    display: inline-block;
+    width: 52px;
+    height: 22px;
+    border: 1px solid #DFDFDF;
+    outline: none;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: rgba(219, 219, 219, 1);
+    cursor: pointer;
+
+    transition-duration: 0.3s;
+    vertical-align: middle;
+    position: relative;
+}
+
+.switch-wrap label::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    transition: all 0.3s;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+}
+
+.switch-wrap input:checked+label {
+    background: #33DB70;
+}
+
+.switch-wrap input:checked+label:before {
+    transform: translateX(25px);
+}
+
+#OnLoad_Button {
+    margin-left: 20px;
+}
+
+/* ------------------ */
+
+#Content_Table {
+    width: 100%;
+    height: 85%;
+}
+
+#User_Table_Div {
+    width: 100%;
+    height: 100%;
+}
+
+#User_Table {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #f3f3f8;
+    border-spacing: 0;
+}
+
+#User_Table_Header,
+#User_Tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+
+}
+
+#User_Tbody {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #fff;
+    transition: all 0.25s;
+}
+
+
+#User_Table_Header {
+    box-sizing: border-box;
+    padding-right: 5px;
+    background-color: #fafafc;
+}
+
+#User_Table_Header>th {
+    height: 3rem;
+    width: auto;
+    font-size: 1.2rem;
+    background-color: #fafafc;
+    color: #1F2225;
+}
+
+#User_Tbody td {
+    width: auto;
+    font-size: 1.1rem;
+    font-weight: 400;
+    word-wrap: break-word;
+    color: #333639;
+    /* border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee; */
+    background-color: #fff;
+    text-align: center;
+}
+
+#User_Tbody>tr {
+    height: 5rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#User_Tbody img {
+    width: 20rem;
+    height: 20rem;
+}
+
+#User_Tbody tr:hover {
+    box-shadow: 0 1px 3px 0 #d4d9e1;
+
+}
+
+#User_Tbody tr:hover td {
+    background-color: #f7f7fa;
+}
+
+#User_Tbody tr:active {
+    transform: scale(0.9);
+}
+
+#User_Tbody::-webkit-scrollbar {
+    width: 5px;
+}
+
+#User_Tbody::-webkit-scrollbar-thumb {
+    background-color: #aaaaaa;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+
+}
+
+#User_Tbody:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+    opacity: 1;
+}
+
+#User_Tbody::-webkit-scrollbar-track {
+    background-color: none;
+    box-sizing: border-box;
+    margin: 0rem 0;
+}
+
+.Button_Hidden {
+    text-align: center;
+}
+
+.Td_Button {
+    padding: 0.5rem 1.3rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+#Td_Button_0 {
+    background-color: #D03050;
+}
+
+#Td_Button_1 {
+    background-color: #F0A020;
+}
+
+
+/* ----------Message---------- */
+
+#Message_Box {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#Message_Box>div {
+    background-color: #777777;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+/* ------------------ */
+
+.Message_Title {
+    width: 100%;
+    height: 20%;
+    line-height: 120px;
+    background-color: #eff0f1;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    font-size: 33px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+}
+
+.Message_Body {
+    width: 100%;
+    height: 70%;
+    background-color: #FFF;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Message_Img {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.Message_Img>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: none;
+}
+
+/* ------------------ */
+
+.Message_Bottom {
+    width: 100%;
+    height: 10%;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+    border-top: 1px solid #c7c8c8;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.Message_Bottom_Left,
+.Message_Bottom_Right {
+    width: auto;
+    height: 60px;
+    line-height: 60px;
+    background: none;
+}
+
+.Message_Bottom input[type="button"] {
+    font-size: 15px;
+    box-sizing: border-box;
+    padding: 3px 10.5px;
+    margin: 0 7.5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.Message_Bottom input[type="button"]:hover {
+    transition: all 0.2s;
+    filter: brightness(105%);
+    cursor: pointer;
+}
+
+.Message_Delete_Button {
+    background: linear-gradient(#E35D5B, #E53935);
+    border: 1px solid #A73737;
+    color: #FFF;
+}
+
+.Message_Cancel_Button {
+    background: linear-gradient(#fff, #e3e3e3);
+    border: 1px solid #d6d6d6;
+    color: #0070c9;
+}
+
+.Message_OK_Button {
+    background: linear-gradient(#51a9ee, #147bcd);
+    border-color: #1482d0;
+    color: #fff;
+    border: 1px solid #07c;
+}
+
+/* ------------------------------ */
+
+#Message_UserUP {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 0;
+    height: 0;
+}
+
+#Message_Delete {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 0;
+    height: 0;
+}
+
+#Message_NewScore {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 0;
+    height: 0;
+}
+
+#UserUP_Name,
+#UserUP_ID,
+#UserUP_Number,
+#UserUP_Admin {
+    width: 60%;
+
+}
+
+#UserUP_Body p {
+    color: #666;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: left;
+}
+
+#UserUP_Body input {
+    /*  border: 1px solid #d6d6d6; */
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    height: 30px;
+    font-size: 19.5px;
+    font-weight: 400;
+    width: 100%;
+    background: none;
+    color: #291818;
+    margin: 5px 0 10px 0
+}
+
+select {
+    margin: 5px 0 10px 0;
+    color: #291818;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+
+#Delete_Bottom {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#Message_Delete_Font {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#Message_Img {
+    background: none;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+#Message_Img>img {
+    background: none;
+    width: 100%;
+    height: 100%;
+}
+
+#Message_Delete_Button {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+}
+
+
+/* ---------------------------- */
+
+#Message_NewUser {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 0;
+    height: 0;
+}
+
+.NewUser_Input {
+    width: 60%;
+}
+
+.NewUser_Input>p {
+    position: absolute;
+    background: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 10px 0 0 10px;
+    transition: all 0.5s;
+    z-index: 9;
+}
+
+.NewUser_Input input {
+    position: relative;
+    cursor: pointer;
+    /* border-radius: 4px; */
+    z-index: 10;
+    outline: none;
+    height: 30px;
+    font-size: 19.5px;
+    font-weight: 400;
+    width: 100%;
+    background: none;
+    color: #291818;
+    margin: 5px 0 10px 0;
+    border-top: none;
+    border-left: 1px solid #d6d6d6;
+    border-right: none;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+#NewUser_Admin_Select {
+    margin: 10px 0;
+    padding: 0 10px;
+    color: #291818;
+    cursor: pointer;
+    font-size: 19.5px;
+    font-weight: 400;
+    border-top: none;
+    border-left: 1px solid #d6d6d6;
+    border-right: none;
+    border-bottom: 1px solid #d6d6d6;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+
+/* ----------------------------------- */
+
+#Prompt_Box {
+    background: none;
+    z-index: 999;
+
+    width: 100%;
+    height: auto;
+    position: absolute;
+    display: inline-block;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+}
+
+#Prompt {
+    color: #fff;
+    background: #fff;
+    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+    color: #000000d9;
+    font-size: 15px;
+    z-index: 9;
+    width: auto;
+    max-width: 400px;
+    height: auto;
+    margin-top: 40px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+/* ----------------------------------- */
+
+#Lock_Page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    background: no-repeat;
+    background-size: cover;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transform: scale(1);
+    transition: all 0.25s;
+}
+
+#Lock_Off {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    background: none;
+    cursor: pointer;
+    opacity: 0;
+    filter: brightness(1);
+}
+
+#Lock_Off:hover {
+    opacity: 1;
+}
+
+#Lock_Off>img {
+    margin-top: 1%;
+    width: 50px;
+    height: 50px;
+    background: none;
+
+}
+
+#Lock_Login {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transform: scale(1);
+    background-color: #000;
+    background: none;
+}
+
+#Lock_Login div {
+    margin: 1rem 0;
+}
+
+#Lock_Img {
+    width: 100px;
+    height: 100px;
+    background: none;
+}
+
+.UserImg {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-radius: 50%;
+}
+
+#Lock_Name {
+    width: auto;
+    height: 5%;
+    color: #FFF;
+    background: none;
+    font-size: 2rem;
+}
+
+#Lock_In {
+    width: 100%;
+    height: 20%;
+    background: none;
+    text-align: center;
+}
+
+#Lock_PassWord {
+    width: 25rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    background: none;
+    outline: none;
+    text-align: center;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    color: #FFF;
+}
+
+#Lock_PassWord::-ms-reveal {
+    display: none
+}
+
+#Lock_PassWord::-webkit-input-safebox-button {
+    display: none;
+}
+
+#Lock_Login_Button {
+    text-align: center;
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    color: #FFF;
+    cursor: pointer;
+}
+
+
+#Time {
+    width: 100%;
+    height: 20%;
+    background: none;
+    visibility: visible;
+    opacity: 0;
+    transition: all 5s;
+}
+
+#Time>h1 {
+    font-size: 5rem;
+    background: none;
+    color: #fff;
+
+}
+
+
+#Time>h2 {
+    font-size: 4rem;
+    background: none;
+    color: #fff;
+}
+
+
+/* ----------------------------------- */
+
+#Onload_First {
+    width: 4rem;
+    color: #767C82;
+    font-size: 1rem;
+}
+
+#Onload_First:hover {
+    color: #3C9BFF;
+    cursor: pointer;
+}
+
+#Onload_Line {
+    color: #767C82;
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+#Onload_Second {
+    width: 4rem;
+    color: #333639;
+    font-size: 1rem;
+}

@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    transition: all 0.5s;
+    background-color: #fff;
+    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: auto;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    z-index: 0;
+    transition: all 0.25s;
+}
+
+body {
+    /* filter: blur(10px); */
+    opacity: 0;
+}
+
+#Flex_Box {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    display: flex;
+    flex-flow: column nowrap;
+    transition: all 1s;
+}
+
+/* ----------Title---------- */
+
+#Title_Box {
+    position: relative;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+}
+
+#Title_Menu {
+    width: 30%;
+    height: 44px;
+    background-color: #323232;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+#Title_Menu_Font {
+    height: auto;
+    width: auto;
+    font-size: 21px;
+    font-weight: 500;
+    color: #FFF;
+    background: none;
+    margin: 0 0.5rem 0 1rem;
+    cursor: pointer;
+}
+
+#Title_Menu_Button {
+    height: auto;
+    width: auto;
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFF;
+    background: none;
+    cursor: pointer;
+}
+
+#Title_Menu_Turn {
+    display: inline-block;
+    font-size: 21px;
+    font-weight: 700;
+    background: none;
+    cursor: pointer;
+    transform: rotate(-90deg);
+}
+
+#Menu_Box {
+    z-index: 11;
+    transition: all 0.5s;
+    filter: blur(0.4px);
+    width: 43rem;
+    height: 20rem;
+    line-height: 3rem;
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #d5d5d5;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    margin: 47px 0 0 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#Menu_Box:after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 7rem;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent transparent;
+    border-bottom: 8px solid #FFF;
+}
+
+#Menu_Box>div {
+    width: 4rem;
+    height: 6rem;
+    margin: 1.5rem;
+}
+
+.Menu_IMG {
+    width: 100%;
+    height: 4rem;
+    cursor: pointer;
+}
+
+.Menu_IMG img {
+    width: 100%;
+    height: 100%;
+    border-radius: 23%;
+}
+
+.Menu_Font {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #000;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.85rem;
+}
+
+#Title_Main {
+    width: 70%;
+    height: 100%;
+    background-color: #323232;
+
+    display: flex;
+    flex-flow: row nowrap;
+    flex-shrink: 100;
+}
+
+.Title_PlaceHolder_Box {
+    height: 100%;
+    /* width: 35%; */
+    background-color: #323232;
+    flex-grow: 1;
+    flex-shrink: 100;
+
+}
+
+#Title_Main_Box {
+    height: 100%;
+    width: 20rem;
+    background-color: #323232;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+/* ----------Content---------- */
+
+#Content_Box {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+#Content_Main {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 1% 2% 1% 2%;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+/* ------------------------------------------------------------------- */
+
+#Content_Main {
+    text-align: center;
+    height: calc(100% - 44px);
+}
+
+#Content_Title {
+    width: 100%;
+    height: 20%;
+    box-sizing: border-box;
+    padding: 2rem 3% 1rem 3%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 1px #aaaaaa;
+}
+
+#Content_Img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+#Content_Img>Img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#Content_Name {
+    height: 4rem;
+    width: 70rem;
+    background: none;
+    color: #B8B8BF;
+    text-align: left;
+}
+
+#Name {
+    background: none;
+    color: #313133;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+#ID {
+    background: none;
+}
+
+#Content_Money {
+    height: 4rem;
+    width: 17rem;
+    align-self: flex-start;
+    text-align: right;
+    color: #313133;
+    font-size: 1.8rem;
+    font-family: D-DIN;
+    margin-right: 4px;
+    font-weight: 500px;
+}
+
+/* ------------------------------------------- */
+
+HR {
+    margin: 0 10% 0 10%;
+    width: 80%;
+    height: 1px;
+    border-radius: 10px;
+    border: 1px solid none;
+    background: linear-gradient(90deg, #1FA2FF, #12D8FA 15%, #A6FFCB 50%, #12D8FA 85%, #1FA2FF);
+}
+
+/* ------------------------------------------- */
+
+#Content_Body {
+    width: 100%;
+    height: 75%;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+}
+
+#Content_Washing {
+    width: 65%;
+    height: 30rem;
+}
+
+#Content_Feekback {
+    width: 25rem;
+    height: 15rem;
+}
+
+#Content_Complaints {
+    width: 25rem;
+    height: 8rem;
+}
+
+#Message_Box {
+    position: absolute;
+    /* z-index: 3; */
+    width: 100%;
+    height: 100%;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#Message_Box>div {
+    background-color: #777777;
+    border-radius: 5px;
+}
+
+#Prompt {
+    color: #fff;
+    background: #fff;
+    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+    color: #000000d9;
+    font-size: 15px;
+    z-index: 9;
+    width: auto;
+    max-width: 400px;
+    height: auto;
+    margin-top: 40px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+#Prompt_Box {
+    background: none;
+    z-index: 999;
+
+    width: 100%;
+    height: auto;
+    position: absolute;
+    display: inline-block;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+}

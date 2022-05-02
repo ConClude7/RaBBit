@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="../../CSS/Manage.css">
+    <link rel="stylesheet" href="../../CSS/Manage_Score.css">
+    <script src="../../JS/Manage.js"></script>
+    <script src="../../JS/axios.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../../IMG/Rabbit_Grey.png">
+</head>
+
+<body>
+    <div id="Flex_Box">
+        <div id="Menu_Box">
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/Schedule.png" onclick="Page('Course')" alt="课程管理">
+                </div>
+                <div class="Menu_Font">
+                    课程查看
+                </div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/News.png" alt="校务新闻">
+                </div>
+                <div class="Menu_Font">校务新闻</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/Score.png" onclick="Page('Score')" alt="考试管理">
+                </div>
+                <div class="Menu_Font">考试管理</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/Duck.png" alt="生活服务">
+                </div>
+                <div class="Menu_Font">生活服务</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/GPS.png" alt="每日打卡">
+                </div>
+                <div class="Menu_Font">每日打卡</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/Business.png" alt="个人信息">
+                </div>
+                <div class="Menu_Font">个人信息</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/MindPiece.png" alt="暂时未定">
+                </div>
+                <div class="Menu_Font">社交聊天</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/Report.png" alt="我的班级">
+                </div>
+                <div class="Menu_Font">我的班级</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/Book.png" alt="云图书">
+
+                </div>
+                <div class="Menu_Font">云图书</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../../IMG/Keynote.png" alt="教师管理">
+                </div>
+                <div class="Menu_Font">教师管理</div>
+            </div>
+            <div id="Menu_Admin">
+                <div class="Menu_IMG" onclick="Page('Manage')">
+                    <img src="../../IMG/Admin.png" alt="">
+                </div>
+                <div class="Menu_Font">后台管理</div>
+            </div>
+        </div>
+
+
+        <div id="Content_Main">
+            <div id="Left_Menu">
+                <div id="Left_Title">
+                    <div id="Title_Menu">
+                        <div id="Title_Menu_Font" onclick="Page('Home')">
+                            RaBBits
+                        </div>
+                        <div id="Title_Menu_Button">
+                            管理
+                            <div id="Title_Menu_Turn">
+                                &#8249;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Left_Main">
+
+                    <div class="Menu_Hidden">
+                        <div class="Menu_first" onclick="Left_Menu(0)">
+                            <div class="First_Img"><img src="../../IMG/WorkHome.png"></div>
+                            <div class="First_Font">工作台</div>
+                            <div class="First_Img"><img src="../../IMG/Bottom.png"></div>
+                        </div>
+                        <div class="Menu_second" onclick="Manage_Page('Manage')">主控台</div>
+                    </div>
+
+                    <div class="Menu_Hidden">
+                        <div class="Menu_first" id="Here" onclick="Left_Menu(1)">
+                            <div class="First_Img"><img src="../../IMG/WorkHome.png"></div>
+                            <div class="First_Font">系统管理</div>
+                            <div class="First_Img"><img src="../../IMG/Bottom.png"></div>
+                        </div>
+                        <div class="Menu_second" onclick="Manage_Page('User')">用户管理</div>
+                        <div class="Menu_second" id="here">课程管理</div>
+                        <div class="Menu_second" onclick="Manage_Page('Leave')">请假管理</div>
+                        <div class="Menu_second" onclick="Manage_Page('Life')">洗衣管理</div>
+                        <div class="Menu_second" onclick="Manage_Page('FeekBack')">反馈管理</div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div id="Content_Title">
+
+                <div id="Title_Left_Box">
+                    <div class="Title_Img" id="Hidden_Button" onclick="Menu_Hidden()"><img id="List_Img"
+                            src="../../IMG/List_False.png" alt="列表">
+                    </div>
+                    <div class="Title_Img" id="Reload_Button" onclick="location.reload()"><img src="../../IMG/F5.png"
+                            alt="刷新"></div>
+                    <div id="Onload_First" class="Hidden_Font"></div>
+                    <p id="Onload_Line" class="Hidden_Font">/</p>
+                    <div id="Onload_Second" class="Hidden_Font"></div>
+                </div>
+                <div id="Title_Right_Box">
+                    <div class="Title_Right_Img"><img src="../../IMG/Exit.png" onclick="Exit()">
+                    </div>
+                    <div id="Title_Right_Ico"><img class="UserImg"></div>
+                    <div class="Title_Right_Img"><img src="../../IMG/Title_Setting.png">
+                    </div>
+                    <div class="Title_Right_Img" onclick="Full_Screen('Content_Main')"><img class="Full_Img"
+                            src="../../IMG/Full.png" alt="全屏">
+                    </div>
+                    <div class="Title_Right_Img" onclick="Page_Lock(true);"><img src="../../IMG/Lock_On.png"></div>
+                    <div class="Title_Right_Img"><img src="../../IMG/Find.png"></div>
+                </div>
+            </div>
+            <div id="Content_Box">
+                <div id="Content_Find">
+                    <div id="Find_Div">
+                        <div id="Find_Img"><img src="../../IMG/User_Find.png"></div>
+                        <div id="Manage_Main_User">
+                            <input id="Manage_User" onfocus="Manage_Input(true,'User'),Input_Div(true,'User')"
+                                onblur="Manage_Input_Num('User',12),Input_Div(false,'User')"
+                                onkeydown="if(event.keyCode==13){Find_User(true)}" type="text">
+                            <p id="Input_Font_User" onclick="document.getElementById('Manage_User').focus()">
+                                ID/姓名/电话号码</p>
+                        </div>
+                    </div>
+                    <div class="Find_Button" id="Find_Button">
+                        <input type="button" id="Find_Button_Ok" onclick="Find_User(true)" value="查询">
+                        <input type="button" id="Find_Button_No" onclick="Find_User(false)" value="重置">
+                    </div>
+
+                </div>
+                <div id="Content_Div">
+                    <div id="Content_Use">
+                        <div id="Use_Left">
+                            <input class="Use_Button" onclick="Message_Box('40rem', '30rem', 'NewScore', true)"
+                                type="button" value="+  新建">
+                        </div>
+                        <div id="Use_Right">
+                            <div class="Use_Img" onclick="Full_Screen('Content_Box')"><img class="Full_Img"
+                                    src="../../IMG/Full.png" alt="全屏"></div>
+                            <div class="Use_Img"><img src=" ../../Img/Setting.png" alt="设置"></div>
+                            <div class="Use_Img"><img src=" ../../Img/Tr_True.png" alt="展开" id="Tr_Big_Img"
+                                    onclick="Tr_Big()">
+                            </div>
+                            <div class="Use_Img">
+                                <img src="../../IMG/OnLOad.png" onclick="Table_ReLoad('Score');" alt="刷新"></div>
+                            <div id="Use_Hr">|</div>
+                            <div id="OnLoad_Button">
+                                <input class="Use_Button" onclick="Table_ReLoad('Score');" type="Button" value="刷新数据">
+                            </div>
+                            <div id="CheckBox" class='switch-wrap'>
+                                <input id="Switch" type="checkbox" onclick="Switch_Table()">
+                                <label for="Switch"></label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="Content_Table">
+                        <div id="User_Table_Div">
+                            <table id="User_Table">
+                                <thead id="User_Thead">
+                                    <tr id="User_Table_Header">
+                                        <th style="width:8%">姓名</th>
+                                        <th style="width:12%">学号</th>
+                                        <th style="width:13%">Web前端开发</th>
+                                        <th style="width:13%">数据库管理及应用</th>
+                                        <th style="width:13%">RFID技术与应用</th>
+                                        <th style="width:13%">程序设计基础</th>
+                                        <th style="width:13%">Linux系统管理</th>
+                                        <th id="Th_Hidden" style="width:15%">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="User_Tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Message_Box">
+            <div id="Message_Score">
+                <div class="Message_Title">修改学生成绩</div>
+                <div class="Message_Body" id="Score_Body">
+                    <p id="Score_Name">姓名</p>
+                    <p id="Score_Id">学号</p>
+                    <div>
+                        <div class="Score_Input_P"></div>
+                        <div class="Score_Input_Div">
+                            <input class="Score_Input" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="Score_Input_P"></div>
+                        <div class="Score_Input_Div">
+                            <input class="Score_Input" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="Score_Input_P"></div>
+                        <div class="Score_Input_Div">
+                            <input class="Score_Input" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="Score_Input_P"></div>
+                        <div class="Score_Input_Div">
+                            <input class="Score_Input" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="Score_Input_P"></div>
+                        <div class="Score_Input_Div">
+                            <input class="Score_Input" type="text">
+                        </div>
+                    </div>
+
+
+                    <div id="Score_Select">
+                        <p>班级</p>
+                        <select id="Admin_Select">
+                            <option value="物联1902">物联1902</option>
+                            <option value="物联1999">物联1999</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="Message_Bottom">
+                    <div class="Message_Bottom_Left">
+                        <input type="button" onclick="DeleteUser()" class="Message_Delete_Button" value="删 除">
+                    </div>
+                    <div class="Message_Bottom_Right">
+                        <input type="button" class="Message_Cancel_Button" onclick="Message_Box('0','0','Score',false)"
+                            value="取 消">
+                        <input type="button" class="Message_OK_Button" value="确 定" onclick="ScoreUP()">
+                    </div>
+                </div>
+            </div>
+
+            <div id="Message_Delete">
+                <div class="Message_Bottom" id="Delete_Bottom">
+                    <div id="Message_Delete_Font">
+                        <div id="Message_Img"><img src="../../IMG/Delete.png" alt=""></div>
+                        <div> 您确定要删除此用户吗?</div>
+                    </div>
+                    <div id="Message_Delete_Button">
+                        <input type="button" class="Message_Cancel_Button" onclick="Message_Box(0,0,'Delete',false)"
+                            value="取消">
+                        <input type="button" class="Message_Delete_Button" onclick="DeleteUser()" value="删除">
+                    </div>
+                </div>
+            </div>
+            <div id="Message_NewScore">
+                <div class="Message_Title">添加成绩</div>
+                <div class="Message_Body">
+                    <div class="NewUser_Input">
+                        <p class="NewScore_P"></p>
+                        <input class="NewScore_Score" type="text">
+                    </div>
+                    <div class="NewUser_Input">
+                        <p class="NewScore_P"></p>
+                        <input class="NewScore_Score" type="text">
+                    </div>
+                    <div class="NewUser_Input">
+                        <p class="NewScore_P"></p>
+                        <input class="NewScore_Score" type="text">
+                    </div>
+                    <div class="NewUser_Input">
+                        <p class="NewScore_P"></p>
+                        <input class="NewScore_Score" type="text">
+                    </div>
+                    <div class="NewUser_Input">
+                        <p class="NewScore_P"></p>
+                        <input class="NewScore_Score" type="text">
+                    </div>
+                    <div class="NewUser_Input">
+                        <p class="NewScore_P"></p>
+                        <input class="NewScore_Score" type="text">
+                    </div>
+                    <div class="NewUser_Input">
+                        <p class="NewScore_P"></p>
+                        <input class="NewScore_Score" type="text">
+                    </div>
+
+
+                    <div class="NewUser_Input">
+                        <select id="NewScore_Class_Select" onblur="NewScore()">
+                            <option value="物联1902">物联1902</option>
+                            <option value="物联1999">物联1999</option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" Message_Bottom">
+                    <div class="Message_Bottom_Left">
+
+                    </div>
+                    <div class="Message_Bottom_Right">
+                        <input type="button" class="Message_Cancel_Button"
+                            onclick="Message_Box('0','0','NewScore',false)" value="取 消">
+                        <input type="button" class="Message_OK_Button" value="确 定" onclick="NewScore()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Prompt_Box">
+            <div id="Prompt">
+
+            </div>
+        </div>
+        <div id="Lock_Page">
+            <div id="Lock_Off">
+                <img src="../../IMG/Lock_Off.png"
+                    onclick="Page_Lock(false);document.getElementById('Lock_PassWord').click()">
+            </div>
+
+            <div id="Time">
+                <h1 id="Lock_h1"></h1>
+                <h2 id="Lock_h2"></h2>
+            </div>
+        </div>
+        <div id="Lock_Login">
+            <div id="Lock_Img"><img class="UserImg"></div>
+            <div id="Lock_Name" class="UserName"></div>
+            <div id="Lock_In">
+                <input id="Lock_PassWord" onkeydown="if(event.keyCode==13){Login()}" type="password"
+                    placeholder="密码"><br>
+                <!--  <input id="Lock_Login_Button" type="button" onclick="Login();" value="登    录"> -->
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="../../JS/Score.js" onload="Table_ReLoad()">
+</script>
+
+</html>

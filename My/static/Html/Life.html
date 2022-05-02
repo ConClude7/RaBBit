@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活服务</title>
+    <link rel="stylesheet" href="../CSS/Tem.css">
+    <link rel="stylesheet" href="../CSS/Life.css">
+    <script src="../JS/Tem.js"></script>
+    <script src="../JS/axios.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../IMG/Rabbit_Grey.png">
+</head>
+
+<body>
+
+    <div id="Flex_Box">
+        <div id="Title_Box">
+            <div id="Title_Menu">
+                <div id="Title_Menu_Font" onclick="Page('Home')">
+                    RaBBits
+                </div>
+                <div id="Title_Menu_Button">
+                    生活
+                    <div id="Title_Menu_Turn">
+                        &#8249;
+                    </div>
+                </div>
+            </div>
+            <div id="Title_Main">
+                <div class="Title_PlaceHolder_Box"></div>
+                <div id="Title_Main_Box"></div>
+                <div class="Title_PlaceHolder_Box"></div>
+            </div>
+        </div>
+
+        <div id="Menu_Box">
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Schedule.png" onclick="Page('Course')" alt="课程管理">
+                </div>
+                <div class="Menu_Font">
+                    课程查看
+                </div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/News.png" alt="校务新闻">
+                </div>
+                <div class="Menu_Font">校务新闻</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Score.png" onclick="Page('Score')" alt="考试管理">
+                </div>
+                <div class="Menu_Font">考试管理</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Duck.png" alt="生活服务">
+                </div>
+                <div class="Menu_Font">生活服务</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/GPS.png" alt="每日打卡">
+                </div>
+                <div class="Menu_Font">每日打卡</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Business.png" alt="个人信息">
+                </div>
+                <div class="Menu_Font">个人信息</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/MindPiece.png" alt="暂时未定">
+                </div>
+                <div class="Menu_Font">社交聊天</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Report.png" alt="我的班级">
+                </div>
+                <div class="Menu_Font">我的班级</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Book.png" alt="云图书">
+
+                </div>
+                <div class="Menu_Font">云图书</div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Keynote.png" alt="教师管理">
+                </div>
+                <div class="Menu_Font">教师管理</div>
+            </div>
+            <div id="Menu_Admin">
+                <div class="Menu_IMG" onclick="Page('Manage')">
+                    <img src="../IMG/Admin.png" alt="">
+                </div>
+                <div class="Menu_Font">后台管理</div>
+            </div>
+        </div>
+        <div id="Content_Main">
+            <div id="Content_Title">
+                <div id="Content_Img">
+                    <img class="UserImg" alt="头像">
+                </div>
+                <div id="Content_Name">
+                    <h1 id="Name"></h1>
+                    <a id="ID"></a>
+                </div>
+                <div id="Content_Money">余额</div>
+            </div>
+            <HR>
+            </HR>
+            <div id="Content_Body">
+                <div id="Content_Washing">
+                    <div id="Washing_Table">
+                        <table id="Washing_Div">
+                            <thead>
+                                <tr id="Washing_Header">
+                                    <th style="border-top-left-radius: 6px;">序号</th>
+                                    <th>设备号</th>
+                                    <th>设备名</th>
+                                    <th>地址</th>
+                                    <th style="border-top-right-radius: 6px;">状态</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Washing_Tbody">
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div id="Content_Feekback">
+                    <div id="Feekback_Message">
+                        <div id="Feekback_Message_Title">
+                            反馈维护
+                        </div>
+                        <div id="Feekback_Message_Content">
+                            <div id="Feekback_Page_Home" onclick="Feekback_Page('Update')">
+                                <br><br>
+                                已提交反馈:2<br>
+                                已处理反馈:2<br>
+                                未处理反馈:0<br>
+                            </div>
+                            <div id="Feekback_Page_Update" onclick="Feekback_Page('Already')">
+                                <h2>已提交反馈</h2>
+                                <p></p>
+                            </div>
+                            <div id="Feekback_Page_Already" onclick="Feekback_Page('No')">
+                                <h2>已处理反馈</h2>
+                                <p></p>
+                            </div>
+                            <div id="Feekback_Page_No" onclick="Feekback_Page('Home')">
+                                <h2>未处理反馈</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Content_Complaints" onclick="Message_Box('40rem','30rem','Complaints','true')">
+                    我要反馈
+                </div>
+            </div>
+        </div>
+        <div id="Prompt_Box">
+            <div id="Prompt">
+
+            </div>
+        </div>
+        <div id="Message_Box">
+            <div id="Message_Washing">
+                <div id="Washing_Order">
+                    <div id="Order_Title">洗衣机预订</div>
+                    <div id="Order_Content">
+                        <div id="Order_Img"><img src="../IMG/Washing.png" alt="洗衣机"></div>
+                        <div id="Order_Main">
+                            <p id="Machine_Name"></p>
+                            <p id="Machine_Address"></p>
+                            <div id="Machine_State"></div>
+                            <div id="Type_Choice">
+                                <form>
+                                    <input id="Cold" type="radio" name="Type" value="Cold">普通混合(冷水) 32分钟
+                                    <label for="Cold"></label><br>
+
+                                    <input id="Hot" type="radio" name="Type" value="Hot">混纺尼龙(热水) 32分钟 <label
+                                        for="Hot"></label><br>
+                                    <input id="Sweet" type="radio" name="Type" value="Sweet">精致衣服(轻柔) 32分钟<label
+                                        for="Sweet"></label><br>
+
+                                </form>
+                            </div>
+                            <button id="Order_Cancel" onclick="Message_Box('0','0','Washing',false);">取 消</button>
+                            <button id="Order_Success" onclick="Washing_UP()">确 定</button>
+                        </div>
+                    </div>
+                    <div id="Order_Bottom"></div>
+                </div>
+            </div>
+            <div id="Message_Complaints">
+                <div id="Complaints_Title">反馈内容</div>
+                <div id="Complaints_Content">
+                    <div id="Complaints_Choice">
+                        <form>
+                            <input id="Advice" type="radio" name="Type_Complaint" value="Advice">建议<label
+                                for="Advice"></label>
+                            <input id="Bad" type="radio" name="Type_Complaint" value="Bad">投诉<label for="Bad"></label>
+                            <input id="Question" type="radio" name="Type_Complaint" value="Question">咨询<label
+                                for="Question"></label>
+                            <input id="Good" type="radio" name="Type_Complaint" value="Good">表扬<label
+                                for="Good"></label><br>
+                            <input id="Washing" type="radio" name="Type_Complaint" value="Washing">洗衣机报修<label
+                                for="Washing"></label>
+                            <input id="Apartment" type="radio" name="Type_Complaint" value="Apartment">公寓报修<label
+                                for="Apartment"></label>
+
+                        </form>
+                    </div>
+                    <textarea id="Complaints_Font" type="text" maxlength="1000" rows="15" cols="50"></textarea>
+                </div>
+                <div id="Complaints_Bottom">
+                    <input id="Complaints_Cancel" type="button" value="取 消"
+                        onclick="Message_Box('0','0','Complaints',false)">
+                    <input id="Complaints_Ok" type="button" value="提 交" onclick="Feekback_Up()">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    let My_Url = 'http://192.168.31.176:8081';
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        const UserID = getCookie("UserID");
+        const UserName = getCookie("UserName");
+        if (UserID != "") {
+            //这里可以放页面加载时函数，避免重复使用 window.onload();
+            SomeThing_Load(UserName, UserID);
+            Washing_Table();
+
+
+        } else {
+            Page('Home');
+        }
+    }
+
+    var SomeThing_Load = (Name, ID) => {
+        const Name_Font = document.getElementById("Name");
+        const ID_Font = document.getElementById("ID");
+        Name_Font.innerText = Name;
+        ID_Font.innerText = ID;
+
+
+    }
+    let Test_Data = new Array();
+    let Washing_Data;
+    var Washing_Table = () => {
+
+
+        axios({
+            method: "GET",
+            url: My_Url + "/life/all",
+        }).then((res) => {
+            Washing_Data = res.data;
+            console.log(res.data);
+            let Data_Name = ['mid', 'mname', 'maddress', 'mstate'];
+
+            for (let n = 0; n < res.data.length; n++) {
+                let Text_H = new Array();
+                for (let m = 0; m < Data_Name.length; m++) {
+                    console.log(n, m);
+                    let Array_Name = Data_Name[m];
+                    Text_H[m] = res.data[n][Array_Name];
+                }
+                Test_Data.push(Text_H);
+            }
+            console.log(Test_Data);
+            const Th_Name = ["MID", "MName", "Address", "State"];
+            const Table = document.getElementById("Washing_Tbody");
+
+            for (let n = 1; n <= Test_Data.length; n++) {
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                let x = n - 1;
+                tr.setAttribute("onclick", "Washing_Order(" + x + ")");
+                Table.appendChild(tr);
+                td.innerText = n;
+                td.id = "Washing_Tr_" + n;
+
+                tr.appendChild(td);
+                for (let m = 0; m <= 3; m++) {
+                    const td = document.createElement("td");
+                    tr.zIndex = 1;
+                    td.id = "Washing_Tr_" + n;
+                    /* td.onclick = Washing_Order("" + n); */
+                    td.innerText = Test_Data[x][m];
+                    tr.appendChild(td);
+                }
+            }
+
+        })
+
+
+    }
+
+
+    let Washing_Num;
+    var Washing_Order = (Num) => {
+        Message_Box('30rem', '50rem', 'Washing', true);
+        Washing_Num = Num;
+        document.getElementById("Machine_Name").innerText = Washing_Data[Num].mname;
+        document.getElementById("Machine_Address").innerText = Washing_Data[Num].maddress;
+        document.getElementById("Machine_State").innerText = Washing_Data[Num].mstate;
+        if (Washing_Data[Num].mstate == "正在使用") {
+            document.getElementById("Machine_State").style.backgroundColor = "lightcoral";
+            document.getElementById("Order_Success").setAttribute("onclick", "Prompt('该设备正在使用',4500)");
+        }
+        if (Washing_Data[Num].mstate == "空闲") {
+            document.getElementById("Machine_State").style.backgroundColor = "lightblue";
+            document.getElementById("Order_Success").setAttribute("onclick", "Washing_UP()");
+        }
+
+    }
+
+    let True_Name = 4;
+    var Washing_UP = () => {
+        console.log(Washing_Data[Washing_Num]);
+        const Cold = document.getElementById("Cold").checked;
+        const Hot = document.getElementById("Hot").checked;
+        const Sweet = document.getElementById("Sweet").checked;
+        let Value_Arr = [Cold, Hot, Sweet];
+        for (let i = 0; i < 3; i++) {
+            if (Value_Arr[i] == true) {
+                True_Name = i;
+                break;
+            }
+        }
+        if (True_Name == 4) {
+            Prompt("未选择洗衣模式", 4500)
+        } else {
+            let Type_Name = ['普通混合(冷水)', '混纺尼龙(热水)', '精致衣服(轻柔)'];
+            axios({
+                method: 'POST',
+                url: My_Url + "/life/update",
+                data: {
+                    mid: Washing_Data[Washing_Num].mid,
+                    userid: getCookie("UserID"),
+                    mtype: True_Name[True_Name],
+                }
+            }).then((res) => {
+                Prompt(res.data.message, 4500);
+                Message_Box('0', '0', 'Washing', false);
+            })
+        }
+    }
+
+    var Prompt = function (Content, Time) {
+        console.log("!!!");
+        const Message = Content;
+        const Prompt = document.getElementById("Prompt");
+        const Prompt_Box = document.getElementById("Prompt_Box");
+        Prompt_Box.style.visibility = "visible";
+        Prompt_Box.style.opacity = "1";
+        Prompt.innerText = Message;
+        sleep(Time).then(() => {
+            Prompt_Box.style.opacity = "0";
+            Prompt_Box.style.visibility = "hidden";
+        })
+    }
+
+    Order_Content = (Num) => {
+        const Machine_Name = document.getElementById("Machine_Name");
+        const Machine_Address = document.getElementById("Machine_Address");
+        const Machine_State = document.getElementById("Machine_State");
+        if (Test_Data[Num - 1][3] == "正在使用") {
+            Machine_State.style.backgroundColor = "lightcoral";
+        } else {
+            Machine_State.style.backgroundColor = "lightseagreen";
+        }
+
+        Machine_Name.innerText = Test_Data[Num - 1][1];
+        Machine_Address.innerText = Test_Data[Num - 1][2];
+        Machine_State.innerText = Test_Data[Num - 1][3];
+    }
+
+    var Feekback_Page = (Page) => {
+        const Page_Array = ["Home", "Update", "Already", "No"];
+        console.log(Page_Array, Page);
+        const n = Page_Array.indexOf(Page);
+        const Page_Name = Page_Array.splice(n, 1);
+        const Show_Page = document.getElementById("Feekback_Page_" + Page_Name);
+        console.log("删除后:", Page_Array, "显示:", Show_Page);
+        for (let i = 0; i < Page_Array.length; i++) {
+            const Hidden_Page = document.getElementById("Feekback_Page_" + Page_Array[i]);
+            Hidden_Page.style.width = "0";
+            Hidden_Page.style.height = "0";
+            Hidden_Page.style.opacity = "0";
+            Hidden_Page.style.visibility = "hidden";
+        }
+        Show_Page.style.width = "100%";
+        Show_Page.style.height = "100%";
+        Show_Page.style.opacity = "1";
+        Show_Page.style.visibility = "visible";
+    }
+
+    var Message_Box = (height, width, element, show, data) => {
+        const Title_Box = document.getElementById("Title_Box");
+        const Content_Main = document.getElementById("Content_Main");
+        const Message_Box = document.getElementById("Message_Box");
+        const Element = document.getElementById("Message_" + element);
+        if (screen.width < 768 && height != 0) {
+            Element.style.height = height;
+            Element.style.width = "90%";
+        } else {
+            Element.style.height = height;
+            Element.style.width = width;
+        }
+        if (show) {
+            Message_Box.style.visibility = "visible";
+            Message_Box.style.opacity = "1";
+            Title_Box.style.filter = "brightness(60%)";
+            Content_Main.style.filter = "brightness(60%)";
+            Element.style.zIndex = "2";
+        } else if (!show) {
+            Message_Box.style.opacity = "0";
+            Message_Box.style.visibility = "hidden";
+            Title_Box.style.filter = "brightness(100%)";
+            Content_Main.style.filter = "brightness(100%)";
+            Element.style.zIndex = "-1";
+        }
+    }
+
+    AutoPage_Life = () => {
+        const Main_Box = document.getElementById("Content_Body");
+        const Table_Box = document.getElementById("Content_Washing");
+        const Feekback_Box = document.getElementById("Content_Feekback");
+        const Complaints_box = document.getElementById("Content_Complaints");
+        Table_Box.style.width = "100%";
+        Table_Box.style.marginBottom = "5rem";
+        Table_Box.style.height = "40rem";
+        Main_Box.style.flexFlow = "row wrap";
+        Main_Box.style.alignContent = "flex-start";
+        Feekback_Box.style.width = "20rem";
+        Complaints_box.style.width = "20rem";
+    }
+
+    var Feekback_Up = () => {
+        let Advice_Name = ['建议', '投诉', '咨询', '表扬', '洗衣机报修', '公寓报修'];
+        let Elements_Name = ['Advice', 'Bad', 'Question', 'Good', 'Washing', 'Apartment'];
+        let Value_Arr = [Cold, Hot, Sweet];
+        for (let i = 0; i < 6; i++) {
+            let Value_Arr = document.getElementById(Elements_Name[i]).checked;
+            if (Value_Arr == true) {
+                True_Name = Advice_Name[i];
+                break;
+            }
+        }
+        const TextArea = document.getElementById("Complaints_Font").value;
+        console.log(True_Name, TextArea);
+        axios({
+            method: "POST",
+            url: My_Url + "/life/feekback",
+            data: {
+                userid: getCookie("UserID"),
+                type: True_Name,
+                text: TextArea
+            }
+        }).then((res) => {
+            console.log(res);
+            Message_Box(res.message, 4500);
+            Message_Box('0', '0', 'Complaints', false);
+        })
+    }
+</script>
+
+</html>

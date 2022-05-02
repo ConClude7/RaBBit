@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活服务</title>
+    <link rel="stylesheet" href="../CSS/Tem.css">
+    <link rel="stylesheet" href="../CSS/Life.css">
+    <script src="../JS/Tem.js"></script>
+    <script src="../JS/axios.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../IMG/Rabbit_Grey.png">
+</head>
+
+<body>
+    <div id="Flex_Box">
+        <div id="Title_Box">
+            <div id="Title_Menu">
+                <div id="Title_Menu_Font" onclick="Page('Home')">
+                    RaBBits
+                </div>
+                <div id="Title_Menu_Button">
+                    生活
+                    <div id="Title_Menu_Turn">
+                        &#8249;
+                    </div>
+                </div>
+            </div>
+            <div id="Title_Main">
+                <div class="Title_PlaceHolder_Box"></div>
+                <div id="Title_Main_Box"></div>
+                <div class="Title_PlaceHolder_Box"></div>
+            </div>
+        </div>
+
+        <div id="Menu_Box">
+            <div onclick="Page('Score')">
+                <div class="Menu_IMG">
+                    <img src="../IMG/Score.png" alt="成绩管理">
+                </div>
+                <div class="Menu_Font">
+                    成绩管理
+                </div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/News.png" alt="最新资讯">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Schedule.png" alt="">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div onclick="Page('Life')">
+                <div class="Menu_IMG">
+                    <img src="../IMG/Duck.png" alt="生活服务">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Business.png" alt="">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/MindPiece.png" alt="">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Report.png" alt="">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Book.png" alt="">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Keynote.png" alt="">
+                    <div class="Menu_Font"></div>
+                </div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                    <img src="../IMG/Admin.png" alt="">
+                </div>
+                <div class="Menu_Font"></div>
+            </div>
+            <div>
+                <div class="Menu_IMG">
+                </div>
+                <div class="Menu_Font">
+                </div>
+            </div>
+        </div>
+
+        <div id="Content_Main">
+            <div id="Content_Title">
+                <div id="Content_Img">
+                    <img src="../IMG/IMG_1.JPG" alt="头像">
+                </div>
+                <div id="Content_Name">
+                    <h1 id="Name"></h1>
+                    <a id="ID"></a>
+                </div>
+                <div id="Content_Money">余额</div>
+            </div>
+            <HR>
+            </HR>
+            <div id="Content_Body">
+                <div id="Content_Washing">
+                </div>
+                <div id="Content_Feekback"></div>
+                <div id="Content_Complaints"></div>
+            </div>
+        </div>
+        <div id="Message_Box">
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        const UserID = getCookie("UserID");
+        const UserName = getCookie("UserName");
+        if (UserID != "") {
+            //这里可以放页面加载时函数，避免重复使用 window.onload();
+            SomeThing_Load(UserName, UserID);
+        } else {
+            Page('Home');
+        }
+    }
+
+    var SomeThing_Load = (Name, ID) => {
+        const Name_Font = document.getElementById("Name");
+        const ID_Font = document.getElementById("ID");
+        Name_Font.innerText = Name;
+        ID_Font.innerText = ID;
+    }
+
+
+    var Message_Box = (height, width, element, show) => {
+        console.log(height, width, element, show);
+        const Message_Box = document.getElementById("Message_Box");
+        const Element = document.getElementById("Message_" + element);
+        Element.style.height = height;
+        Element.style.width = width;
+        if (show) {
+            Message_Box.style.visibility = "visible";
+            Message_Box.style.opacity = "1";
+        } else if (!show) {
+            console.log("!!!");
+            Message_Box.style.opacity = "0";
+            Message_Box.style.visibility = "hidden";
+        }
+    }
+</script>
+
+</html>

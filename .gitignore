@@ -1,0 +1,4 @@
+node_modules/
+dist/
+My/public/img/
+My/package-lock.json
